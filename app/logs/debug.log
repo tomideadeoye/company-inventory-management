@@ -1,0 +1,2558 @@
+Internal Server Error: /api/v1/auth/users/invite-user/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/user/views.py", line 78, in invite_user
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/app/user/serializers.py", line 78, in create
+    user = User.objects.create_user(**validated_data, password=default_password)
+  File "/app/user/managers.py", line 19, in create_user
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 831, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 882, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1656, in execute_sql
+    for sql, params in self.as_sql():
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1580, in as_sql
+    value_rows = [
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1581, in <listcomp>
+    [
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1582, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1530, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/files.py", line 316, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/files.py", line 92, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "/usr/local/lib/python3.10/site-packages/django/core/files/storage.py", line 55, in save
+    name = self.get_available_name(name, max_length=max_length)
+  File "/usr/local/lib/python3.10/site-packages/storages/backends/s3boto3.py", line 605, in get_available_name
+    return super().get_available_name(name, max_length)
+  File "/usr/local/lib/python3.10/site-packages/django/core/files/storage.py", line 95, in get_available_name
+    while self.exists(name) or (max_length and len(name) > max_length):
+  File "/usr/local/lib/python3.10/site-packages/storages/backends/s3boto3.py", line 469, in exists
+    self.connection.meta.client.head_object(Bucket=self.bucket_name, Key=name)
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 508, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 878, in _make_api_call
+    request_dict = self._convert_to_request_dict(
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 936, in _convert_to_request_dict
+    api_params = self._emit_api_params(
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 969, in _emit_api_params
+    self.meta.events.emit(
+  File "/usr/local/lib/python3.10/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/handlers.py", line 276, in validate_bucket_name
+    raise ParamValidationError(report=error_msg)
+botocore.exceptions.ParamValidationError: Parameter validation failed:
+Invalid bucket name "": Bucket name must match the regex "^[a-zA-Z0-9.\-_]{1,255}$" or be an ARN matching the regex "^arn:(aws).*:(s3|s3-object-lambda):[a-z\-0-9]*:[0-9]{12}:accesspoint[/:][a-zA-Z0-9\-.]{1,63}$|^arn:(aws).*:s3-outposts:[a-z\-0-9]+:[0-9]{12}:outpost[/:][a-zA-Z0-9\-]{1,63}[/:]accesspoint[/:][a-zA-Z0-9\-]{1,63}$"
+HTTP POST /api/v1/auth/users/invite-user/ 500 [3.25, 172.20.0.1:59626]
+Internal Server Error: /api/v1/auth/users/invite-user/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/user/views.py", line 78, in invite_user
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/app/user/serializers.py", line 78, in create
+    user = User.objects.create_user(**validated_data, password=default_password)
+  File "/app/user/managers.py", line 19, in create_user
+    user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 68, in save
+    super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 831, in save
+    self.save_base(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 882, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1025, in _save_table
+    results = self._do_insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 1066, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1790, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1656, in execute_sql
+    for sql, params in self.as_sql():
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1580, in as_sql
+    value_rows = [
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1581, in <listcomp>
+    [
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1582, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1530, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/files.py", line 316, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/files.py", line 92, in save
+    self.name = self.storage.save(name, content, max_length=self.field.max_length)
+  File "/usr/local/lib/python3.10/site-packages/django/core/files/storage.py", line 55, in save
+    name = self.get_available_name(name, max_length=max_length)
+  File "/usr/local/lib/python3.10/site-packages/storages/backends/s3boto3.py", line 605, in get_available_name
+    return super().get_available_name(name, max_length)
+  File "/usr/local/lib/python3.10/site-packages/django/core/files/storage.py", line 95, in get_available_name
+    while self.exists(name) or (max_length and len(name) > max_length):
+  File "/usr/local/lib/python3.10/site-packages/storages/backends/s3boto3.py", line 469, in exists
+    self.connection.meta.client.head_object(Bucket=self.bucket_name, Key=name)
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 508, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 878, in _make_api_call
+    request_dict = self._convert_to_request_dict(
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 936, in _convert_to_request_dict
+    api_params = self._emit_api_params(
+  File "/usr/local/lib/python3.10/site-packages/botocore/client.py", line 969, in _emit_api_params
+    self.meta.events.emit(
+  File "/usr/local/lib/python3.10/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/botocore/handlers.py", line 276, in validate_bucket_name
+    raise ParamValidationError(report=error_msg)
+botocore.exceptions.ParamValidationError: Parameter validation failed:
+Invalid bucket name "": Bucket name must match the regex "^[a-zA-Z0-9.\-_]{1,255}$" or be an ARN matching the regex "^arn:(aws).*:(s3|s3-object-lambda):[a-z\-0-9]*:[0-9]{12}:accesspoint[/:][a-zA-Z0-9\-.]{1,63}$|^arn:(aws).*:s3-outposts:[a-z\-0-9]+:[0-9]{12}:outpost[/:][a-zA-Z0-9\-]{1,63}[/:]accesspoint[/:][a-zA-Z0-9\-]{1,63}$"
+HTTP POST /api/v1/auth/users/invite-user/ 500 [1.69, 172.20.0.1:59662]
+Internal Server Error: /api/v1/auth/users/f8e49928-7a90-4bd3-b103-5c5cec2163ba/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 66, in update
+    serializer = self.get_serializer(instance, data=request.data, partial=partial)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 108, in get_serializer
+    serializer_class = self.get_serializer_class()
+  File "/app/user/views.py", line 49, in get_serializer_class
+    return UpdateUserSerializer
+NameError: name 'UpdateUserSerializer' is not defined
+HTTP PATCH /api/v1/auth/users/f8e49928-7a90-4bd3-b103-5c5cec2163ba/ 500 [0.18, 172.20.0.1:60048]
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 81, in get_operation
+    request_body = self._get_request_body()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1180, in _get_request_body
+    schema, request_body_required = self._get_request_for_media_type(request_serializer)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1211, in _get_request_for_media_type
+    component = self.resolve_serializer(serializer, 'request')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `position` is not valid for model `User`.
+HTTP GET /api/schema/ 500 [0.07, 172.20.0.1:60882]
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 81, in get_operation
+    request_body = self._get_request_body()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1180, in _get_request_body
+    schema, request_body_required = self._get_request_for_media_type(request_serializer)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1211, in _get_request_for_media_type
+    component = self.resolve_serializer(serializer, 'request')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 57, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1076, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1222, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1340, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `position` is not valid for model `User`.
+HTTP GET /api/schema/ 500 [0.09, 172.20.0.1:60882]
+Internal Server Error: /api/v1/auth/users/create-password/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/user/views.py", line 138, in create_password
+    token.reset_user_password(request.data['password'])
+  File "/app/user/models.py", line 91, in reset_user_password
+    self.user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 70, in save
+    password_validation.password_changed(self._password, self)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/password_validation.py", line 66, in password_changed
+    password_validators = get_default_password_validators()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/password_validation.py", line 22, in get_default_password_validators
+    return get_password_validators(settings.AUTH_PASSWORD_VALIDATORS)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/password_validation.py", line 36, in get_password_validators
+    validators.append(klass(**validator.get("OPTIONS", {})))
+TypeError: UserAttributeSimilarityValidator.__init__() got an unexpected keyword argument 'min_length'
+HTTP POST /api/v1/auth/users/create-password/ 500 [0.20, 172.20.0.1:61094]
+Internal Server Error: /api/v1/auth/users/create-password/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 253, in _get_response_async
+    response = await wrapped_callback(
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/user/views.py", line 138, in create_password
+    token.reset_user_password(request.data['password'])
+  File "/app/user/models.py", line 91, in reset_user_password
+    self.user.save()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 70, in save
+    password_validation.password_changed(self._password, self)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/password_validation.py", line 66, in password_changed
+    password_validators = get_default_password_validators()
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/password_validation.py", line 22, in get_default_password_validators
+    return get_password_validators(settings.AUTH_PASSWORD_VALIDATORS)
+  File "/usr/local/lib/python3.10/site-packages/django/contrib/auth/password_validation.py", line 36, in get_password_validators
+    validators.append(klass(**validator.get("OPTIONS", {})))
+TypeError: UserAttributeSimilarityValidator.__init__() got an unexpected keyword argument 'min_length'
+HTTP POST /api/v1/auth/users/create-password/ 500 [0.18, 172.20.0.1:61118]
+Internal Server Error: /api/v1/workspace/ebd09fdc-2ebf-4947-ad9f-c233f43abe44/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 38, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 68, in update
+    self.perform_update(serializer)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 78, in perform_update
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 207, in save
+    self.instance = self.update(self.instance, validated_data)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 174, in update
+    raise NotImplementedError('`update()` must be implemented.')
+NotImplementedError: `update()` must be implemented.
+HTTP PATCH /api/v1/workspace/ebd09fdc-2ebf-4947-ad9f-c233f43abe44/ 500 [0.82, 172.24.0.1:58562]
+Internal Server Error: /api/v1/workspace/ebd09fdc-2ebf-4947-ad9f-c233f43abe44/update-status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 38, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/workspaces/views.py", line 56, in update_workspace
+    serializer.is_valid(raise_exception=True)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 227, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 429, in run_validation
+    value = self.validate(value)
+  File "/app/workspaces/serializers.py", line 71, in validate
+    if status == 'ACTIVATE' and workspace.status != 'ARCHIVE':
+AttributeError: 'WorkSpace' object has no attribute 'status'
+HTTP POST /api/v1/workspace/ebd09fdc-2ebf-4947-ad9f-c233f43abe44/update-status/ 500 [0.86, 172.24.0.1:58792]
+Internal Server Error: /api/v1/workspace/ebd09fdc-2ebf-4947-ad9f-c233f43abe44/update-status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column workspaces_workspace.status does not exist
+LINE 1: ..."."street", "workspaces_workspace"."description", "workspace...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 38, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/workspaces/views.py", line 53, in update_workspace
+    workspace = self.get_object()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 96, in get_object
+    obj = get_object_or_404(queryset, **filter_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 19, in get_object_or_404
+    return _get_object_or_404(queryset, *filter_args, **filter_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 435, in get
+    num = len(clone)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1354, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1202, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 230, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 154, in _record
+    return method(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column workspaces_workspace.status does not exist
+LINE 1: ..."."street", "workspaces_workspace"."description", "workspace...
+                                                             ^
+
+HTTP POST /api/v1/workspace/ebd09fdc-2ebf-4947-ad9f-c233f43abe44/update-status/ 500 [0.47, 172.24.0.1:58822]
+Internal Server Error: /api/v1/workspace/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column "status" of relation "workspaces_workspace" does not exist
+LINE 1: ...y", "state_or_province", "street", "description", "status", ...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 38, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/app/workspaces/serializers.py", line 30, in create
+    workspace = WorkSpace.objects.create(**validated_data, )
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 780, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 923, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 230, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 154, in _record
+    return method(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column "status" of relation "workspaces_workspace" does not exist
+LINE 1: ...y", "state_or_province", "street", "description", "status", ...
+                                                             ^
+
+HTTP POST /api/v1/workspace/ 500 [0.74, 172.24.0.1:58838]
+Internal Server Error: /api/v1/workspace/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column "status" of relation "workspaces_workspace" does not exist
+LINE 1: ...y", "state_or_province", "street", "description", "status", ...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 472, in thread_handler
+    raise exc_info[1]
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 38, in inner
+    response = await get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 233, in _get_response_async
+    response = await wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 435, in __call__
+    ret = await asyncio.wait_for(future, timeout=None)
+  File "/usr/local/lib/python3.10/asyncio/tasks.py", line 408, in wait_for
+    return await fut
+  File "/usr/local/lib/python3.10/site-packages/asgiref/current_thread_executor.py", line 22, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.10/site-packages/asgiref/sync.py", line 476, in thread_handler
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/app/workspaces/serializers.py", line 30, in create
+    workspace = WorkSpace.objects.create(**validated_data, )
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 780, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 923, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 230, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 154, in _record
+    return method(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column "status" of relation "workspaces_workspace" does not exist
+LINE 1: ...y", "state_or_province", "street", "description", "status", ...
+                                                             ^
+
+HTTP POST /api/v1/workspace/ 500 [0.61, 172.24.0.1:58906]
+Invalid HTTP_HOST header: '192.168.88.210'. You may need to add '192.168.88.210' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '192.168.88.210'. You may need to add '192.168.88.210' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '192.168.88.210'. You may need to add '192.168.88.210' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '192.168.88.210'. You may need to add '192.168.88.210' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '192.168.88.210'. You may need to add '192.168.88.210' to ALLOWED_HOSTS.
+Internal Server Error: /api/v1/dukka_connection/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/schema/
+Internal Server Error: /api/v1/tms/assign/
+Internal Server Error: /api/v1/tms/assign/
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 50, in assign_terminal
+    terminal = self.get_object()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+AssertionError: Expected view TerminalViewSets to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 50, in assign_terminal
+    terminal = self.get_object()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+AssertionError: Expected view TerminalViewSets to be called with a URL keyword argument named "pk". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 204, in save
+    validated_data = {**self.validated_data, **kwargs}
+TypeError: 'Terminal' object is not a mapping
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 204, in save
+    validated_data = {**self.validated_data, **kwargs}
+TypeError: 'Terminal' object is not a mapping
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 204, in save
+    validated_data = {**self.validated_data, **kwargs}
+TypeError: 'Terminal' object is not a mapping
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 204, in save
+    validated_data = {**self.validated_data, **kwargs}
+TypeError: 'Terminal' object is not a mapping
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 204, in save
+    validated_data = {**self.validated_data, **kwargs}
+TypeError: 'Terminal' object is not a mapping
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 77, in create
+    TerminalLog.object.create(**data)
+AttributeError: type object 'TerminalLog' has no attribute 'object'
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 77, in create
+    TerminalLog.objects.create(**data)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 455, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 489, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "UUID('43542d6e-ec30-43e0-85bc-bdd10c3a394c')": "TerminalLog.terminal" must be a "Terminal" instance.
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 77, in create
+    TerminalLog.objects.create(**data)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 455, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 507, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: TerminalLog() got an unexpected keyword argument 'merchant_ref'
+Internal Server Error: /api/v1/tms/assign/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 52, in assign_terminal
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 77, in create
+    TerminalLog.objects.create(**data)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 455, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 507, in __init__
+    raise TypeError("%s() got an unexpected keyword argument '%s'" % (cls.__name__, kwarg))
+TypeError: TerminalLog() got an unexpected keyword argument 'merchant_ref'
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/generic/base.py", line 69, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 81, in get
+    return self._get_schema_response(request)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/views.py", line 89, in _get_schema_response
+    data=generator.get_schema(request=request, public=self.serve_public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 268, in get_schema
+    paths=self.parse(request, public),
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/generators.py", line 239, in parse
+    operation = view.schema.get_operation(
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 93, in get_operation
+    operation['responses'] = self._get_response_bodies()
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1251, in _get_response_bodies
+    return {'200': self._get_response_for_code(response_serializers, '200')}
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1307, in _get_response_for_code
+    component = self.resolve_serializer(serializer, 'response')
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 1462, in resolve_serializer
+    component.schema = self._map_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 869, in _map_serializer
+    schema = self._map_basic_serializer(serializer, direction)
+  File "/usr/local/lib/python3.10/site-packages/drf_spectacular/openapi.py", line 946, in _map_basic_serializer
+    for field in serializer.fields.values():
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 356, in fields
+    for key, value in self.get_fields().items():
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1052, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 1124, in get_field_names
+    assert not (fields is None and exclude is None), (
+AssertionError: ("Creating a ModelSerializer without either the 'fields' attribute or the 'exclude' attribute has been deprecated since 3.3.0, and is now disallowed. Add an explicit fields = '__all__' to the TerminalLogSerializer serializer.",)
+Internal Server Error: /api/v1/merchants/3a4a4a2c-0a80-47f0-9c9a-8d3e1caf9a37/terminals/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2409, in to_python
+    return uuid.UUID(**{input_form: value})
+  File "/usr/local/lib/python3.10/uuid.py", line 174, in __init__
+    hex = hex.replace('urn:', '').replace('uuid:', '')
+AttributeError: 'AccountsCustomuser' object has no attribute 'replace'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/dukka_connection/views.py", line 34, in get_merchant_terminal
+    terminals = Terminal.objects.filter(merchant_ref=merchant)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 974, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 992, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 999, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1375, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1396, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1329, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/query.py", line 1180, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/lookups.py", line 22, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/lookups.py", line 79, in get_prep_lookup
+    return self.lhs.output_field.get_prep_value(self.rhs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2393, in get_prep_value
+    return self.to_python(value)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2411, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['“AccountsCustomuser object (3a4a4a2c-0a80-47f0-9c9a-8d3e1caf9a37)” is not a valid UUID.']
+Internal Server Error: /api/v1/merchants/3a4a4a2c-0a80-47f0-9c9a-8d3e1caf9a37/terminal-logs/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/fields.py", line 457, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/fields.py", line 97, in get_attribute
+    instance = getattr(instance, attr)
+AttributeError: 'Terminal' object has no attribute 'type'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/dukka_connection/views.py", line 58, in get_merchant_terminal_logs
+    return self.paginate_results(terminals)
+  File "/app/dukka_connection/views.py", line 29, in paginate_results
+    return self.get_paginated_response(serializer.data)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 768, in data
+    ret = super().data
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 686, in to_representation
+    return [
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 687, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+  File "/app/tms/serializers.py", line 87, in to_representation
+    data = super().to_representation(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/fields.py", line 490, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `type` on serializer `TerminalLogSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `Terminal` instance.
+Original exception text was: 'Terminal' object has no attribute 'type'.
+Internal Server Error: /api/v1/merchants/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/pagination.py", line 216, in paginate_queryset
+    return list(self.page)
+  File "/usr/local/lib/python3.10/site-packages/django/core/paginator.py", line 177, in __len__
+    return len(self.object_list)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1356, in _fetch_all
+    self._prefetch_related_objects()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 841, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1751, in prefetch_related_objects
+    raise ValueError("'%s' does not resolve to an item that supports "
+ValueError: 'business_account__address' does not resolve to an item that supports prefetching - this is an invalid parameter to prefetch_related().
+Internal Server Error: /api/v1/merchants/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/pagination.py", line 216, in paginate_queryset
+    return list(self.page)
+  File "/usr/local/lib/python3.10/site-packages/django/core/paginator.py", line 177, in __len__
+    return len(self.object_list)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1356, in _fetch_all
+    self._prefetch_related_objects()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 841, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1743, in prefetch_related_objects
+    raise AttributeError("Cannot find '%s' on %s object, '%s' is an invalid "
+AttributeError: Cannot find 'busibess_account' on AccountsCustomuser object, 'busibess_account__business_type' is an invalid parameter to prefetch_related()
+Internal Server Error: /api/v1/merchants/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 40, in list
+    page = self.paginate_queryset(queryset)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/generics.py", line 171, in paginate_queryset
+    return self.paginator.paginate_queryset(queryset, self.request, view=self)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/pagination.py", line 216, in paginate_queryset
+    return list(self.page)
+  File "/usr/local/lib/python3.10/site-packages/django/core/paginator.py", line 177, in __len__
+    return len(self.object_list)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1356, in _fetch_all
+    self._prefetch_related_objects()
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 841, in _prefetch_related_objects
+    prefetch_related_objects(self._result_cache, *self._prefetch_related_lookups)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1751, in prefetch_related_objects
+    raise ValueError("'%s' does not resolve to an item that supports "
+ValueError: 'business_account__business_type__title' does not resolve to an item that supports prefetching - this is an invalid parameter to prefetch_related().
+Internal Server Error: /api/schema/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/middleware.py", line 48, in __call__
+    if not show_toolbar(request) or DebugToolbar.is_toolbar_request(request):
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/toolbar.py", line 158, in is_toolbar_request
+    resolver_match = request.resolver_match or resolve(
+  File "/usr/local/lib/python3.10/site-packages/django/urls/base.py", line 24, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 590, in resolve
+    for pattern in self.url_patterns:
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 632, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python3.10/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/lib/python3.10/site-packages/django/urls/resolvers.py", line 625, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/core/urls.py", line 14, in <module>
+    path("api/v1/tms/", include("tms.urls")),
+  File "/usr/local/lib/python3.10/site-packages/django/urls/conf.py", line 34, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/usr/local/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/app/tms/urls.py", line 3, in <module>
+    from .views import TerminalViewSets
+  File "/app/tms/views.py", line 8, in <module>
+    import Pandas as pd
+ModuleNotFoundError: No module named 'Pandas'
+Internal Server Error: /api/v1/tms/bulk-create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3629, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 136, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 163, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 102, in bulk_create_terminals
+    data.update({"name": row["name"]})
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/series.py", line 958, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/series.py", line 1069, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3631, in get_loc
+    raise KeyError(key) from err
+KeyError: 'name'
+Internal Server Error: /api/v1/tms/bulk-create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3629, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 136, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 163, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'name'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 102, in bulk_create_terminals
+    data.update({"name": row["name"]})
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/series.py", line 958, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/series.py", line 1069, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3631, in get_loc
+    raise KeyError(key) from err
+KeyError: 'name'
+Internal Server Error: /api/v1/tms/bulk-create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 97, in bulk_create_terminals
+    reader = pd.read_csv(file)
+  File "/usr/local/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 678, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 575, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 932, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1234, in _make_engine
+    return mapping[engine](f, **self.options)
+  File "/usr/local/lib/python3.10/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 75, in __init__
+    self._reader = parsers.TextReader(src, **kwds)
+  File "pandas/_libs/parsers.pyx", line 544, in pandas._libs.parsers.TextReader.__cinit__
+  File "pandas/_libs/parsers.pyx", line 633, in pandas._libs.parsers.TextReader._get_header
+  File "pandas/_libs/parsers.pyx", line 847, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 1952, in pandas._libs.parsers.raise_parser_error
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xf7 in position 16: invalid start byte
+Internal Server Error: /api/v1/tms/bulk-create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3629, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 136, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 163, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'shipment_batch'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 108, in bulk_create_terminals
+    data.update({"shipment_batch": row["shipment_batch"]})
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/series.py", line 958, in __getitem__
+    return self._get_value(key)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/series.py", line 1069, in _get_value
+    loc = self.index.get_loc(label)
+  File "/usr/local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3631, in get_loc
+    raise KeyError(key) from err
+KeyError: 'shipment_batch'
+Internal Server Error: /api/v1/tms/bulk-create/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 112, in bulk_create_terminals
+    if terminal_serializer.is_valid(raise_exception=False):
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 748, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 618, in run_validation
+    value = self.to_internal_value(data)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 666, in to_internal_value
+    validated = self.child.run_validation(item)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 429, in run_validation
+    value = self.validate(value)
+  File "/app/tms/serializers.py", line 22, in validate
+    creator = self.context['request'].user
+KeyError: 'request'
+Internal Server Error: /api/v1/tms/5991193d-e2fc-4f4c-97cb-2c16ef3cbd3b/create-components/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 139, in unassign_terminal
+    serializer.save(terminal=terminal)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 731, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 703, in create
+    return [
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 704, in <listcomp>
+    self.child.create(attrs) for attrs in validated_data
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 962, in create
+    instance = ModelClass._default_manager.create(**validated_data)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 455, in create
+    obj = self.model(**kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 489, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 215, in __set__
+    raise ValueError(
+ValueError: Cannot assign "<Terminal: Agricultural Development Programme>": "Component.terminal" must be a "Group" instance.
+Internal Server Error: /api/v1/tms/terminals/e496ba2e-a265-4756-bd9a-32afd9cb8b06/update-status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 157, in update_status
+    serializer = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 332, in create
+    "notes": validated_data["notes"]
+KeyError: 'notes'
+Internal Server Error: /api/v1/tms/terminals/e496ba2e-a265-4756-bd9a-32afd9cb8b06/update-status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 157, in update_status
+    serializer = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 332, in create
+    "notes": validated_data["notes"]
+KeyError: 'notes'
+Internal Server Error: /api/v1/tms/terminals/e496ba2e-a265-4756-bd9a-32afd9cb8b06/update-status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 157, in update_status
+    serializer = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 332, in create
+    "notes": validated_data["notes"]
+KeyError: 'notes'
+Internal Server Error: /api/v1/tms/terminals/e496ba2e-a265-4756-bd9a-32afd9cb8b06/update-status/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/app/tms/views.py", line 157, in update_status
+    serializer = serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/usr/local/lib/python3.10/contextlib.py", line 79, in inner
+    return func(*args, **kwds)
+  File "/app/tms/serializers.py", line 332, in create
+    "notes": validated_data["notes"]
+KeyError: 'notes'
+Internal Server Error: /api/v1/tms/terminals/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column "shipment_batch_id" of relation "tms_terminal" does not exist
+LINE 1: ...o", "os_version", "app_version", "device_tag_no", "shipment_...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/usr/local/lib/python3.10/site-packages/rest_framework/serializers.py", line 212, in save
+    self.instance = self.create(validated_data)
+  File "/app/tms/serializers.py", line 91, in create
+    terminal = Terminal.objects.create(**validated_data, )
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 457, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/app/tms/models.py", line 74, in save
+    return super().save(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 743, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 780, in save_base
+    updated = self._save_table(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 885, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/base.py", line 923, in _do_insert
+    return manager._insert(
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/query.py", line 1301, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/usr/local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1441, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 230, in execute
+    return self._record(self.cursor.execute, sql, params)
+  File "/usr/local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 154, in _record
+    return method(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 99, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 76, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute
+    with self.db.wrap_database_errors:
+  File "/usr/local/lib/python3.10/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.10/site-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column "shipment_batch_id" of relation "tms_terminal" does not exist
+LINE 1: ...o", "os_version", "app_version", "device_tag_no", "shipment_...
+                                                             ^
+

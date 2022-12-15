@@ -1,0 +1,166 @@
+[2022-10-06 21:10:45,407: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-06 21:10:45,420: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-06 21:10:46,522: INFO/MainProcess] mingle: all alone
+[2022-10-06 21:10:46,635: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-06 21:10:46,642: INFO/MainProcess] celery@51c376b0874b ready.
+[2022-10-06 21:10:48,474: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-10-06 21:18:23,086: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-06 21:18:23,103: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-06 21:18:24,131: INFO/MainProcess] mingle: all alone
+[2022-10-06 21:18:24,196: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-06 21:18:24,199: INFO/MainProcess] celery@837e61b65942 ready.
+[2022-10-06 21:18:26,206: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-10-06 21:46:22,745: INFO/MainProcess] Task user.tasks.send_new_user_email[1626c2d6-212f-42f0-b821-308691cf4464] received
+[2022-10-06 21:46:26,327: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[1626c2d6-212f-42f0-b821-308691cf4464] succeeded in 3.4795500849995733s: None
+[2022-10-06 22:01:01,760: INFO/MainProcess] Task user.tasks.send_new_user_email[fa971eea-bf98-4ec1-99ca-c2b8ff6b8b80] received
+[2022-10-06 22:01:05,036: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[fa971eea-bf98-4ec1-99ca-c2b8ff6b8b80] succeeded in 3.0293564179992245s: None
+[2022-10-06 22:05:22,646: INFO/MainProcess] Task user.tasks.send_password_reset_email[7f80e673-7fb1-4f25-86c0-f8eabe4b52cc] received
+[2022-10-06 22:05:26,012: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[7f80e673-7fb1-4f25-86c0-f8eabe4b52cc] succeeded in 3.2857339180000054s: None
+[2022-10-07 05:35:20,572: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 2.00 seconds... (1/100)
+
+[2022-10-07 05:35:22,586: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 4.00 seconds... (2/100)
+
+[2022-10-07 05:35:26,603: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 6.00 seconds... (3/100)
+
+[2022-10-07 05:35:32,647: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 8.00 seconds... (4/100)
+
+[2022-10-07 05:35:40,696: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 10.00 seconds... (5/100)
+
+[2022-10-07 05:35:50,777: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 12.00 seconds... (6/100)
+
+[2022-10-07 05:36:02,858: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 14.00 seconds... (7/100)
+
+[2022-10-07 05:36:16,929: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 16.00 seconds... (8/100)
+
+[2022-10-07 05:36:33,033: ERROR/MainProcess] consumer: Cannot connect to redis://default:**@redis:6379//: Error -2 connecting to redis:6379. Name or service not known..
+Trying again in 18.00 seconds... (9/100)
+
+[2022-10-07 05:36:51,172: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-07 05:36:51,185: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-07 05:36:52,204: INFO/MainProcess] mingle: all alone
+[2022-10-07 05:36:52,244: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-07 05:36:52,247: INFO/MainProcess] celery@837e61b65942 ready.
+[2022-10-07 05:36:54,297: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-10-07 05:38:24,519: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-07 05:38:24,526: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-07 05:38:25,555: INFO/MainProcess] mingle: all alone
+[2022-10-07 05:38:25,593: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-07 05:38:25,597: INFO/MainProcess] celery@cd1e6b3a1e95 ready.
+[2022-10-07 05:38:28,775: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-10-07 06:59:06,461: INFO/MainProcess] Task user.tasks.send_password_reset_email[77732373-b41a-47d0-9ceb-a7bf8236268b] received
+[2022-10-07 06:59:09,858: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[77732373-b41a-47d0-9ceb-a7bf8236268b] succeeded in 3.2646085019996463s: None
+[2022-10-07 10:13:11,290: INFO/MainProcess] Task user.tasks.send_new_user_email[78c7efd8-3b4a-42c0-b1cd-6110a3a078da] received
+[2022-10-07 10:13:14,549: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[78c7efd8-3b4a-42c0-b1cd-6110a3a078da] succeeded in 3.186530793000202s: None
+[2022-10-07 11:13:30,160: INFO/MainProcess] Task user.tasks.send_new_user_email[63bc240e-6ec5-4df3-9701-4acba780fad8] received
+[2022-10-07 11:13:33,660: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[63bc240e-6ec5-4df3-9701-4acba780fad8] succeeded in 3.397257126000113s: None
+[2022-10-07 11:19:43,038: INFO/MainProcess] Task user.tasks.send_password_reset_email[95d0246a-bf87-433b-a49c-9e8acae6e69a] received
+[2022-10-07 11:19:46,205: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[95d0246a-bf87-433b-a49c-9e8acae6e69a] succeeded in 3.106080667999777s: None
+[2022-10-07 11:19:51,433: INFO/MainProcess] Task user.tasks.send_password_reset_email[0fd01929-aaeb-4390-9a92-b03dfe97e3dc] received
+[2022-10-07 11:19:54,300: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[0fd01929-aaeb-4390-9a92-b03dfe97e3dc] succeeded in 2.8525695010011987s: None
+[2022-10-07 11:30:51,141: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-07 11:30:51,148: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-07 11:30:52,179: INFO/MainProcess] mingle: all alone
+[2022-10-07 11:30:52,222: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-07 11:30:52,224: INFO/MainProcess] celery@79148867ae16 ready.
+[2022-10-07 11:30:54,502: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-10-07 11:55:36,526: INFO/MainProcess] Task user.tasks.send_password_reset_email[ff75be89-2396-4631-9663-2b13010c6419] received
+[2022-10-07 11:55:41,406: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[ff75be89-2396-4631-9663-2b13010c6419] succeeded in 4.370552210000824s: None
+[2022-10-07 12:34:01,967: INFO/MainProcess] Task user.tasks.send_new_user_email[969e8c4c-5a8b-423d-a404-8c05f7cf7a97] received
+[2022-10-07 12:34:05,201: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[969e8c4c-5a8b-423d-a404-8c05f7cf7a97] succeeded in 3.145993667998482s: None
+[2022-10-07 12:53:43,531: INFO/MainProcess] Task user.tasks.send_new_user_email[6e204ce2-c6b6-475e-9083-d93a31b7d021] received
+[2022-10-07 12:53:47,697: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[6e204ce2-c6b6-475e-9083-d93a31b7d021] succeeded in 4.067780918998324s: None
+[2022-10-07 13:01:29,588: INFO/MainProcess] Task user.tasks.send_password_reset_email[5d067f88-7058-48fe-99ff-7abc547f5d80] received
+[2022-10-07 13:01:33,328: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[5d067f88-7058-48fe-99ff-7abc547f5d80] succeeded in 3.666084668999247s: None
+[2022-10-07 13:10:48,441: INFO/MainProcess] Task user.tasks.send_new_user_email[c53a90c7-9dea-4c99-9fe1-b1e981b7028c] received
+[2022-10-07 13:10:52,444: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[c53a90c7-9dea-4c99-9fe1-b1e981b7028c] succeeded in 3.8942963760018756s: None
+[2022-10-08 05:26:34,889: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-08 05:26:34,908: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-08 05:26:35,947: INFO/MainProcess] mingle: all alone
+[2022-10-08 05:26:35,983: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-08 05:26:35,985: INFO/MainProcess] celery@a2baf98e2091 ready.
+[2022-10-08 05:27:29,808: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-08 05:27:29,815: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-08 05:27:30,839: INFO/MainProcess] mingle: all alone
+[2022-10-08 05:27:30,858: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-08 05:27:30,860: INFO/MainProcess] celery@2e9bffce3a42 ready.
+[2022-10-08 05:29:06,687: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-08 05:29:06,700: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-08 05:29:07,730: INFO/MainProcess] mingle: all alone
+[2022-10-08 05:29:07,781: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-08 05:29:07,785: INFO/MainProcess] celery@dac8b234e6ab ready.
+[2022-10-08 05:29:42,549: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-08 05:29:42,571: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-08 05:29:43,742: INFO/MainProcess] mingle: all alone
+[2022-10-08 05:29:43,942: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-08 05:29:43,980: INFO/MainProcess] celery@a029f3106cc7 ready.
+[2022-10-08 05:29:45,182: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-10-08 05:31:32,363: INFO/MainProcess] Task user.tasks.send_new_user_email[1cb89e25-6201-4c22-ab45-e85541ef8d52] received
+[2022-10-08 05:31:41,857: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[1cb89e25-6201-4c22-ab45-e85541ef8d52] succeeded in 9.293614253998385s: None
+[2022-10-28 13:10:07,416: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-10-28 13:10:07,911: INFO/MainProcess] mingle: searching for neighbors
+[2022-10-28 13:10:09,248: INFO/MainProcess] mingle: all alone
+[2022-10-28 13:10:09,376: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-10-28 13:10:09,389: INFO/MainProcess] celery@c70a8a98623f ready.
+[2022-10-28 13:10:12,108: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-11-04 12:49:17,925: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-11-04 12:49:17,943: INFO/MainProcess] mingle: searching for neighbors
+[2022-11-04 12:49:18,970: INFO/MainProcess] mingle: all alone
+[2022-11-04 12:49:18,985: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-11-04 12:49:18,987: INFO/MainProcess] celery@30ddc55fae49 ready.
+[2022-11-04 12:49:20,795: INFO/MainProcess] Events of group {task} enabled by remote.
+[2022-11-04 13:11:46,740: INFO/MainProcess] Task user.tasks.send_new_user_email[d23550b0-52ea-4fb2-9dcf-e243de6aa02f] received
+[2022-11-04 13:11:54,832: INFO/ForkPoolWorker-1] Task user.tasks.send_new_user_email[d23550b0-52ea-4fb2-9dcf-e243de6aa02f] succeeded in 7.914807419998397s: None
+[2022-11-04 13:20:37,164: INFO/MainProcess] Task user.tasks.send_password_reset_email[13af217e-1b75-4edd-aa11-c55ea8fcb153] received
+[2022-11-04 13:20:46,907: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[13af217e-1b75-4edd-aa11-c55ea8fcb153] succeeded in 9.371697337002843s: None
+[2022-11-04 13:28:33,249: INFO/MainProcess] Task user.tasks.send_password_reset_email[5f5d26be-9957-4267-91ac-3a4c76df6cb6] received
+[2022-11-04 13:28:40,662: INFO/ForkPoolWorker-1] Task user.tasks.send_password_reset_email[5f5d26be-9957-4267-91ac-3a4c76df6cb6] succeeded in 6.919311295001535s: None
+[2022-11-04 14:54:36,007: INFO/MainProcess] Connected to redis://default:**@redis:6379//
+[2022-11-04 14:54:36,139: INFO/MainProcess] mingle: searching for neighbors
+[2022-11-04 14:54:37,375: INFO/MainProcess] mingle: all alone
+[2022-11-04 14:54:37,409: WARNING/MainProcess] /usr/local/lib/python3.10/site-packages/celery/fixups/django.py:203: UserWarning: Using settings.DEBUG leads to a memory
+            leak, never use this setting in production environments!
+  warnings.warn('''Using settings.DEBUG leads to a memory
+
+[2022-11-04 14:54:37,412: INFO/MainProcess] celery@30ead3f0a72f ready.
+[2022-11-04 14:54:42,040: INFO/MainProcess] Events of group {task} enabled by remote.

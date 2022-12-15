@@ -1,0 +1,81 @@
+{% load static %}<!DOCTYPE html>
+<html>
+<head>
+  <title>Simone Confirmation Email</title>
+  <style>
+  body{
+    width:100%;
+    margin: 0;
+    height: 90vh;
+}
+.main{
+    width: 50%;
+    height: 87vh;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:rgba(0, 0, 0, 0.322);
+    
+}
+img{
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+}
+.content {
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 300px;
+    background-color: white;
+    padding: 2px 3px 4px 30px;
+    height:65vh;
+}
+article{
+    margin-top: 25px;
+    font-family: Georgia,'Times New Roman', serif;
+    font-size: 16px;
+}
+.paragraph1{
+    text-align: center;
+}
+.EandP{
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 5px;
+    
+}
+h4{
+    margin-top: 20px;
+} 
+</style>
+</head>
+<body>
+    <div class="main">
+            <div class="content">
+    <div class="logo-container" style="padding-top: 3%; padding-bottom: 3%">
+      <center>
+        <img src="https://dukka-icons.s3.amazonaws.com/simone-logo.jpeg" alt="Simone Logo" style="width: 13%" />
+      </center>
+    </div>          
+            <article>
+              <h>Dear {{email}}</h>    
+              <p class="paragraph1">Click on this link to sign in </p>
+              <p><a href="{{url}}">{{url}}</a>     
+            </p>
+         <p class="paragraph1"><i>For further assistance, please contact us on simone@admin.com</i></p> 
+     <h4>
+         <p>Simone</p>
+     </h4>         
+       </article>
+    </div>        
+    </div> 
+</body>
+</html>
